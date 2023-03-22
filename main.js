@@ -31,6 +31,19 @@ function addUser(newUser) {
     .catch(error => console.error(error));
 }
 
+function updateUser(id, updatedUser) {
+  fetch(`${url}/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify(updatedUser),
+    headers: {
+      'Content-Type': 'application/json; charset=UTF-8'
+    }
+  })
+    .then(response => response.json())
+    .then(data => alertAPI.textContent = data)
+    .catch(error => console.error(error));
+}
+
 const newUser = {
   name: "Karen Tatiane",
   avatar: "https://thumbs.gfycat.com/FickleWaryBrocketdeer-size_restricted.gif",
@@ -38,8 +51,14 @@ const newUser = {
 
 }
 
+const updatedUser = {
+  name: "Sophia Vazquez",
+  avatar: "https://i.pinimg.com/originals/5f/09/b3/5f09b35c6fc0ba3c97cd09538926c8b6.gif",
+  city: "São Paulo"
+}
 
-addUser(newUser);
 
-getUser(2);
+//addUser(newUser);
+updateUser(3, updatedUser);
+getUser(3);
 getUsers();
