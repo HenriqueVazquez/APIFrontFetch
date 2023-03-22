@@ -44,6 +44,19 @@ function updateUser(id, updatedUser) {
     .catch(error => console.error(error));
 }
 
+function deleteUser(id) {
+  fetch(`${url}/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json; charset=UTF-8'
+    }
+  })
+    .then(response => response.json())
+    .then(data => alertAPI.textContent = data)
+    .catch(error => console.error(error));
+}
+
+
 const newUser = {
   name: "Karen Tatiane",
   avatar: "https://thumbs.gfycat.com/FickleWaryBrocketdeer-size_restricted.gif",
@@ -59,6 +72,7 @@ const updatedUser = {
 
 
 //addUser(newUser);
-updateUser(3, updatedUser);
+//updateUser(3, updatedUser);
+deleteUser(6);
 getUser(3);
 getUsers();
