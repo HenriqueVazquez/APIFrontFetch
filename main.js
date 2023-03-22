@@ -18,6 +18,28 @@ function getUser(id) {
     .catch(error => console.error(error));
 }
 
+function addUser(newUser) {
+  fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(newUser),
+    headers: {
+      'Content-Type': 'application/json; charset=UTF-8'
+    }
+  })
+    .then(response => response.json())
+    .then(data => alertAPI.textContent = data)
+    .catch(error => console.error(error));
+}
 
-getUser(1);
+const newUser = {
+  name: "Karen Tatiane",
+  avatar: "https://thumbs.gfycat.com/FickleWaryBrocketdeer-size_restricted.gif",
+  city: "São Paulo"
+
+}
+
+
+addUser(newUser);
+
+getUser(2);
 getUsers();
